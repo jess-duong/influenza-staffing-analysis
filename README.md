@@ -72,7 +72,7 @@ Medical staffing agencies face the challenge of efficiently allocating limited t
 **Datasets Integrated**:
 - CDC Influenza Mortality (2009-2017): State-level deaths by age group
 - U.S. Census Population Data: Demographics by state, year, age
-- CDC Vaccination Coverage (2009-2016): Flu vaccination rates for 65+
+- CDC Vaccination Coverage: Flu vaccination rates for 6 months+ (https://data.cdc.gov/Flu-Vaccinations/Influenza-Vaccination-Coverage-for-All-Ages-6-Mont/vh55-3he6/about_data)
 - CDC Healthcare Visits: Monthly influenza-related visits by state
 
 **Time Period**: 2009-2017  
