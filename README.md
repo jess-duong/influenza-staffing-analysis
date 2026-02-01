@@ -37,7 +37,7 @@ Medical staffing agencies face the challenge of efficiently allocating limited t
 - Built interactive Tableau dashboard for geographic and temporal visualization
 - Developed staffing allocation model prioritizing high-elderly-population states
 
-## 📁 Repository Contents
+## Repository Contents
 ```
 ├── Data/                       # Integrated datasets and statistical report
 ├── Visualizations/             # Tableau dashboard (link) and Excel charts
@@ -93,7 +93,7 @@ Medical staffing agencies face the challenge of efficiently allocating limited t
 
 ## Interactive Dashboard
 
-🔗 **[View Full Tableau Dashboard](https://public.tableau.com/app/profile/jess.duong/viz/InfluenzaBurdenVaccinationCoverage/InfluenzaStaffingAnalysis)**
+**[View Full Tableau Dashboard](https://public.tableau.com/app/profile/jess.duong/viz/InfluenzaBurdenVaccinationCoverage/InfluenzaStaffingAnalysis)**
 
 ### Dashboard Features
 - **Geographic Heatmap**: Influenza mortality rates by state
@@ -102,7 +102,7 @@ Medical staffing agencies face the challenge of efficiently allocating limited t
 - **Priority States**: Ranked by elderly population and death counts
 - **Vaccination Analysis**: Coverage rates vs outcomes
 
-## 📚 Documentation
+## Documentation
 
 - **[Complete Statistical Report](Data/)**: Hypothesis testing, descriptive statistics, correlation analysis
 - **[Data Integration Methodology](Data/)**: Detailed documentation of merge process and calculated fields
