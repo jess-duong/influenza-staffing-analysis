@@ -102,12 +102,6 @@ Medical staffing agencies face the challenge of efficiently allocating limited t
 - **Priority States**: Ranked by elderly population and death counts
 - **Vaccination Analysis**: Coverage rates vs outcomes
 
-## Documentation
-
-- **[Complete Statistical Report](Data/)**: Hypothesis testing, descriptive statistics, correlation analysis
-- **[Data Integration Methodology](Data/)**: Detailed documentation of merge process and calculated fields
-- **[Interactive Visualizations](Visualizations/)**: Tableau dashboard and Excel charts
-
 ## Project Context
 
 This project was completed as part of CareerFoundry's Data Analytics program, demonstrating proficiency in:
