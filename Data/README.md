@@ -5,8 +5,8 @@ This folder contains the integrated datasets and documentation for the Influenza
 ## Contents
 
 ### Final Datasets
-- **Influenza_Workbook.xlsx** - Integrated dataset combining CDC mortality, Census population, and vaccination data (2009-2017)
-- **Provider_Reallocation_2019.xlsx** - Staffing allocation model based on elderly population distribution and visit patterns
+- **Intermediate_Workbook_FINAL.xlsx** - Integrated dataset combining CDC mortality, Census population, and vaccination data (2009-2017)
+- **Provider_Reallocation.xlsx** - Staffing allocation model based on elderly population distribution
 
 ### Documentation
 - **Influenza_Interim_Report_FINAL.pdf** - Complete statistical analysis report including:
@@ -18,20 +18,15 @@ This folder contains the integrated datasets and documentation for the Influenza
 ## Data Sources
 
 1. **CDC Influenza Deaths**: State-level mortality data by age group (2009-2017)
-   - Source: https://wonder.cdc.gov/ucd-icd10.html
-
-2. **U.S. Census Population Data**: State demographics by age and year (2009-2017)
-   - Source: U.S. Census Bureau surveys
-
-3. **CDC Vaccination Coverage**: Flu vaccination rates for 65+ population (2009-2016)
-   - Source: https://data.cdc.gov/Flu-Vaccinations/
-
-4. **CDC Influenza-Related Healthcare Visits**: Monthly influenza visit data by state
-   - Used for seasonal pattern analysis and provider reallocation modeling
-   - Source: CDC surveillance data
+2. **U.S. Census Population Data**: State demographics by age and year
+3. **CDC Vaccination Coverage**: Flu vaccination rates for 65+ population
+4. **CDC Influenza Visits**: CDC Weekly U.S. Influenza Surveillance Report
 
 ## Key Variables
 
 - **State-Year**: Concatenated identifier (e.g., "Alabama_2009")
 - **Age Groups**: High Risk (65+), Low Risk (Under 65)
-- **D
+- **Death Rate**: Deaths per 100,000 population
+- **Vaccination Rate**: Percentage of 65+ population vaccinated
+
+**Note**: Raw source datasets not included; analysis uses integrated data only.
