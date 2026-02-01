@@ -5,8 +5,8 @@ This folder contains the integrated datasets and documentation for the Influenza
 ## Contents
 
 ### Final Datasets
-- **Influenza_workbook.xlsx** - Integrated dataset combining CDC mortality, Census population, and vaccination data (2009-2017)
-- **Provider_reallocation.xlsx** - Staffing allocation model based on elderly population distribution and visit patterns
+- **Influenza_Workbook.xlsx** - Integrated dataset combining CDC mortality, Census population, and vaccination data (2009-2017)
+- **Provider_Reallocation_2019.xlsx** - Staffing allocation model based on elderly population distribution and visit patterns
 
 ### Documentation
 - **Influenza_Interim_Report_FINAL.pdf** - Complete statistical analysis report including:
