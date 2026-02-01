@@ -86,7 +86,7 @@ Medical staffing agencies face the challenge of efficiently allocating limited t
 - **Vaccination Impact**: Minimal correlation with mortality rates (R²=0.15)
 
 ### Data Limitations
-- **Incomplete 2017 data**: Partial year; excluded from trend analysis
+- **Incomplete 2011 and 2017 data**: Partial year 2017; 2017 excluded from trend analysis; some states missing 2011 data and excluded 
 - **Missing geographic data**: Florida influenza visit data unavailable
 - **CDC suppression**: Small death counts (<10) suppressed in less populous states
 - **State-level aggregation**: Ecological fallacy may affect individual-level interpretation
