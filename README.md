@@ -67,7 +67,7 @@ Medical staffing agencies face the challenge of efficiently allocating limited t
 - Allocate staff to support early intervention initiatives
 - Focus on facilities serving vulnerable elderly populations
 
-## 📈 Data Scope & Methodology
+## Data Scope & Methodology
 
 **Datasets Integrated**:
 - CDC Influenza Mortality (2009-2017): State-level deaths by age group
