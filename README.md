@@ -1,137 +1,105 @@
 # Influenza Staffing Analysis
 
-**Statistical analysis of CDC influenza mortality data (2009-2017) to optimize medical staffing allocation during flu season.**
+**Statistical analysis of CDC influenza mortality data to optimize medical staffing allocation across 50 states during flu season.**
 
-[![View Dashboard](https://img.shields.io/badge/Tableau-Interactive_Dashboard-orange)](https://public.tableau.com/app/profile/jess.duong/viz/InfluenzaBurdenVaccinationCoverage/InfluenzaStaffingAnalysis)
-[![View Report](https://img.shields.io/badge/View-Analysis_Report-blue)](Data/)
+[![View Dashboard](https://img.shields.io/badge/Tableau-Staffing_Decision_Dashboard-2B5329?style=flat-square&logo=tableau&logoColor=white)](https://public.tableau.com/app/profile/jess.duong/viz/InfluenzaBurdenVaccinationCoverage/InfluenzaStaffingAnalysis)
+[![View Report](https://img.shields.io/badge/PDF-Interim_Analysis_Report-6AAB73?style=flat-square&logo=adobe&logoColor=white)](Data/Influenza_Interim_Report_FINAL_Jessica_Duong.pdf)
+[![View Workbook](https://img.shields.io/badge/Excel-Analysis_Workbook-C4A84D?style=flat-square&logo=microsoftexcel&logoColor=white)](Data/intermediate_workbook_FINAL.xlsx)
 
-## Project Overview
+---
 
-A medical staffing agency needed data-driven guidance for deploying temporary healthcare workers during influenza season. This analysis examined CDC mortality data, U.S. Census population demographics, and vaccination coverage records to identify which states and populations require prioritized staffing resources.
+## Project Background
 
-### Business Problem
-Medical staffing agencies face the challenge of efficiently allocating limited temporary staff during flu season peaks. This project analyzes mortality patterns and population demographics to determine where additional healthcare capacity would have the greatest impact.
+A national medical staffing agency provides temporary healthcare workers to hospitals and clinics during flu season surges. The challenge: **staffing decisions are reactive**, with hospitals scrambling for workers after demand spikes rather than planning ahead. Misallocation leads to understaffing in high-risk areas and overspending in low-risk ones.
 
-### Key Questions
-- Which populations face the highest influenza mortality risk?
-- Which geographic areas require priority staffing deployment?
-- How do seasonal patterns inform optimal timing for resource allocation?
-- Does vaccination coverage reduce staffing demand?
+This analysis integrated four CDC and U.S. Census datasets (458 state-year observations across 50 states, 2009–2017) to identify which populations, states, and time periods require prioritized staffing and to build a forecasting model that enables proactive deployment 1–2 months ahead of peak season.
 
-### Key Findings
-- **Adults 65+ face 5.2x higher influenza mortality** compared to under-65 population (statistically significant, p<0.0001)
-- **Deaths peak December through March**: Requiring proactive pre-winter staffing deployment
-- **High-risk states identified**: CA, PA, TX, NY, FL show highest absolute death counts
-- **Vaccination coverage shows minimal impact** on state-level mortality (R²=0.15); should not reduce staffing allocation
+## Data Structure
 
-## Tools & Techniques
+Four datasets were merged using a concatenated State-Year key to create a single integrated dataset for analysis. Age groups were consolidated into High Risk (65+) and Low Risk (Under 65), and all death counts were standardized to rates per 100,000 population for fair cross-state comparison.
 
-**Tools**: Excel, Tableau, Statistical Analysis (Welch's t-test)  
-**Skills**: Data integration, hypothesis testing, correlation analysis, interactive dashboard design, public health analytics
+**Datasets integrated:**
+- **CDC Influenza Mortality** (2009–2017) → state-level deaths by age group
+- **U.S. Census Population** → demographics by state, year, and age
+- **CDC Vaccination Coverage** → flu vaccination rates for 65+ population
+- **CDC Influenza Visits** → monthly influenza-related healthcare visits by state
 
-### Analytical Approach
-- Integrated 4 datasets using State-Year concatenated keys
-- Calculated death rates per 100,000 population for standardization
-- Conducted statistical hypothesis testing (65+ vs Under 65 mortality)
-- Analyzed correlation between elderly population size and death counts (R²=0.88)
-- Built interactive Tableau dashboard for geographic and temporal visualization
-- Developed staffing allocation model prioritizing high-elderly-population states
+**Final dataset:** 458 state-year observations · 50 states + D.C. · 88.4% vaccination data completeness
 
-## Repository Contents
-```
-├── Data/                       # Integrated datasets and statistical report
-├── Visualizations/             # Tableau dashboard (link) and Excel charts
-├── Analysis/                   # Statistical methodology documentation
-└── README.md                   # Project documentation
-```
+## Executive Summary
 
-## Strategic Recommendations
+Analysis revealed that **elderly population size is the single strongest predictor of influenza staffing demand** (R² = 0.88), far outperforming vaccination coverage as a forecasting variable. Seasonal patterns show a consistent 6x spike in winter months, and risk is concentrated in a small number of high-population states — enabling targeted, proactive deployment rather than broad national coverage.
 
-### Prioritize Elderly-Serving Facilities
-- Deploy temporary staff to hospitals and clinics with high 65+ patient concentration
-- Focus resources in states with largest elderly populations (CA, PA, TX, NY, FL)
-- Scale staffing levels based on state-specific elderly population forecasts
+### Top Findings
 
-### Optimize Seasonal Timing
-- **Pre-position workers before December surge** (deaths peak Dec-Mar)
-- Maintain elevated staffing capacity through early spring
-- Use monthly visit patterns to anticipate demand spikes
+**1. Adults 65+ face 5.2x higher influenza death rates than the under-65 population.**
+Mean death rate for seniors is 120.8 per 100,000 compared to 23.1 for younger adults (p < 0.0001, Welch's t-test). This statistically significant gap makes elderly population share the primary variable for staffing allocation decisions.
 
-### Geographic Allocation Strategy
-- Elderly population size is the strongest predictor of staffing need (R²=0.88)
-- Deaths scale linearly with 65+ population across all states
-- Vaccination rates should NOT reduce allocation estimates (weak correlation)
+**2. Elderly population size predicts flu deaths with 88% accuracy (R² = 0.88).**
+Deaths scale linearly with the 65+ population across all states, making this a reliable, simple forecasting input. States with the largest elderly populations — California, Pennsylvania, Texas, New York, Florida — consistently require the most resources.
 
-### Support Preventive Efforts
-- Coordinate with vaccination outreach programs in high-risk areas
-- Allocate staff to support early intervention initiatives
-- Focus on facilities serving vulnerable elderly populations
+**3. Winter demand is 6x higher than summer, peaking in February.**
+Average ILI cases per state hit 669.5 in February versus 98.4 in July. The surge begins in December and sustains through March, meaning staffing must be pre-positioned by November to avoid reactive scrambling.
 
-## Data Scope & Methodology
+**4. Vaccination coverage does not reliably reduce staffing demand (R² = 0.15).**
+States with high vaccination rates show no meaningful reduction in death rates compared to lower-coverage states. Vaccination should not be used to justify reducing staffing allocation in any state.
 
-**Datasets Integrated**:
-- CDC Influenza Mortality (2009-2017): State-level deaths by age group
-- U.S. Census Population Data: Demographics by state, year, age
-- CDC Vaccination Coverage: Flu vaccination rates for 6 months+
-- CDC Healthcare Visits: Monthly influenza-related visits by state
+## Insights Deep Dive
 
-**Time Period**: 2009-2017  
-**Geographic Coverage**: 50 states + District of Columbia  
-**Final Dataset**: 458 state-year observations
+### Population Risk
 
-### Statistical Analysis
-- **Hypothesis Test**: Welch's t-test (unequal variances)
-- **Result**: 65+ population shows significantly higher mortality (mean death rate 120.8 vs 23.1 per 100k, p<0.0001)
-- **Correlation Analysis**: Strong positive correlation between elderly population and deaths (R²=0.88)
-- **Vaccination Impact**: Minimal correlation with mortality rates (R²=0.15)
+The 65+ population drives the vast majority of influenza mortality. Death counts in this group show an IQR of 859 compared to just 52 for the under-65 population, meaning state size and elderly concentration explain most of the variability in staffing needs. The top five states by absolute death count are California, Pennsylvania, Texas, New York, and Florida, and should anchor any staffing allocation model.
 
-### Data Limitations
-- **Incomplete 2011 and 2017 data**: Partial year 2017; 2017 excluded from trend analysis; some states missing 2011 data and excluded 
-- **Missing geographic data**: Florida influenza visit data unavailable
-- **CDC suppression**: Small death counts (<10) suppressed in less populous states
-- **State-level aggregation**: Ecological fallacy may affect individual-level interpretation
+![Geographic Risk Hotspots](Visualizations/geographic-risk-hotspots.png)
 
-## Interactive Dashboard
+![Flu deaths strongly correlate with 65+ population](Visualizations/flu-deaths-correlation.png)
 
-**[View Full Tableau Dashboard](https://public.tableau.com/app/profile/jess.duong/viz/InfluenzaBurdenVaccinationCoverage/InfluenzaStaffingAnalysis)**
+### Seasonal Patterns
 
-### Dashboard Features
-- **Geographic Heatmap**: Influenza mortality rates by state
-- **Seasonal Patterns**: Monthly healthcare visit trends
-- **Age Group Comparison**: 65+ vs Under 65 mortality visualization
-- **Priority States**: Ranked by elderly population and death counts
-- **Vaccination Analysis**: Coverage rates vs outcomes
+Influenza-related healthcare visits follow a predictable annual cycle, with cases climbing sharply in December, peaking in January–February, and declining through April. The 6x difference between peak and trough months means staffing capacity must flex dramatically, and schedules should be finalized 1–2 months before the December surge based on historical trend data.
 
-## Project Context
+![Monthly Seasonal Trend](Visualizations/seasonal-trend.png)
 
-This project was completed as part of CareerFoundry's Data Analytics program, demonstrating proficiency in:
-- Multi-source data integration and cleaning
-- Statistical hypothesis testing and interpretation
-- Public health analytics and resource allocation modeling
-- Interactive dashboard design for stakeholder decision-making
-- Translating analytical findings into actionable business strategy
+### Vaccination Paradox
 
-### Technical Notes
-- **Data Integration**: Used State-Year concatenated keys to merge 4 datasets
-- **Age Grouping**: Combined CDC age categories into High Risk (65+) and Low Risk (Under 65)
-- **Rate Calculation**: Deaths per 100,000 population for cross-state comparability
-- **Visualization Tool**: Tableau Public for interactive geographic and temporal analysis
-- **Statistical Software**: Excel for hypothesis testing and correlation analysis
+Despite intuition, vaccination coverage shows minimal correlation with state-level mortality (R² = 0.15). States with over 70% vaccination rates among seniors showed comparable death rates to states below 65% coverage. This means staffing models should rely on population demographics, not vaccination rates, as the primary allocation variable.
 
-## Next Steps & Future Analysis
+## Recommendations
 
-### Recommended Enhancements
-- **Validate with complete 2017+ data**: Update analysis with recent complete years
-- **Expand age stratification**: Explore 55-64 age group (preliminary analysis suggests elevated risk)
-- **Incorporate healthcare infrastructure**: Add hospital capacity and rural/urban distribution metrics
-- **Develop predictive models**: Build forecasting tools using historical patterns and population projections
-- **Real-time integration**: Connect to live CDC surveillance data for dynamic staffing adjustments
+**Prioritize Elderly-Serving Facilities**
+Deploy temporary staff to hospitals and clinics with high 65+ patient concentration. Focus resources on states with the largest elderly populations (CA, PA, TX, NY, FL) and scale staffing levels based on state-specific elderly population forecasts.
+
+**Pre-Position Staff Before December**
+Finalize winter staffing schedules by October–November using historical seasonal patterns. Maintain elevated capacity through March, then reduce non-essential staffing during summer months to control costs.
+
+**Allocate by Population Demographics, Not Vaccination Rates**
+Use elderly population size as the primary allocation variable (R² = 0.88). Do not reduce staffing estimates based on vaccination coverage. The correlation with mortality is too weak to justify reduced resources.
+
+**Maintain Flexible Capacity**
+Build float pools for rapid reallocation as real-time CDC data reveals early surge signals. Monitor monthly visit patterns to detect demand spikes and refresh forecasts annually with each new season's data.
+
+## Tools & Skills
+
+| Tool | Use |
+|------|-----|
+| Excel | Data integration, hypothesis testing, correlation analysis |
+| Tableau Public | Interactive dashboard with geographic and temporal visualization |
+
+**Analytical techniques demonstrated:** Multi-source data integration using concatenated keys · Welch's t-test for hypothesis testing (unequal variances) · Correlation analysis (R² regression) · Per-capita rate standardization · Seasonal trend analysis · Population-based forecasting model
+
+## Deliverables
+
+| Document | Description |
+|----------|-------------|
+| [Tableau Dashboard](https://public.tableau.com/app/profile/jess.duong/viz/InfluenzaBurdenVaccinationCoverage/InfluenzaStaffingAnalysis) | Interactive geographic heatmap, seasonal patterns, and staffing recommendations |
+| [Interim Analysis Report](Data/Influenza_Interim_Report_FINAL_Jessica_Duong.pdf) | Full statistical methodology, hypothesis testing, and findings documentation |
+| [Analysis Workbook](Data/intermediate_workbook_FINAL.xlsx) | Integrated dataset with all calculations and summary statistics |
 
 ## Author
 
-**Jess Duong**  
+**Jessica Duong**
 Data Analyst | [LinkedIn](https://www.linkedin.com/in/jess-duong/) | [Portfolio](https://jess-duong.github.io/) | duong.t.jess@gmail.com
 
 ---
 
-*For questions about methodology or to discuss this analysis, please reach out via [LinkedIn](https://linkedin.com/in/jessica-duong-35690847/) or open an issue in this repository.*
+*Data source: CDC influenza mortality, U.S. Census population demographics, CDC vaccination coverage, and CDC influenza visit data (2009–2017). Analysis covers 458 state-year observations across 50 states + District of Columbia.*
